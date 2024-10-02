@@ -36,3 +36,6 @@ output "default_vpc_id" {
 #     value = data.aws_route_table.main
 # }
 
+output "aws_db_subnet_group" {
+    value = data.aws_db_subnet_group.default
+}

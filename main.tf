@@ -85,10 +85,20 @@ resource "aws_route_table" "database" {
     Name = "${local.resource_name}-database"
   }
 }
+# DB Subnet group for RDS
+resource "aws_db_subnet_group" "default" {
+  name       = local.resource_name
+  subnet_ids = aws_subnet.database[*].id
+
+  tags =
+    {
+        Name = local.resource_name
+    }
+}
 
 resource "aws_route" "public" {
   route_table_id            = aws_route_table.public.id
-  destination_cidr_block    = "0.0.0.0/0"
+  destination_8cidr_block    = "0.0.0.0/0"
   gateway_id  = aws_internet_gateway.main.id
 }
 
