@@ -37,5 +37,5 @@ output "default_vpc_id" {
 # }
 
 output "aws_db_subnet_group" {
-    value = data.aws_db_subnet_group.default
+    value = data.aws_db_subnet_group.default.name
 }
